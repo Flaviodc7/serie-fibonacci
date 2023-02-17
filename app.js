@@ -1,16 +1,7 @@
-const fs = require('fs');
+const serie = require('./serie');
 
-let fibo1 = 1;
-let fibo2 = 1;
-let serie = '1\n';
+let cantidad = 10
 
-for (let i = 2; i <= 7; i++){
-    serie += `${fibo2}\n`;
-    fibo2 = fibo1 + fibo2;
-    fibo1 = fibo2 - fibo1;
-}
-
-fs.writeFile('serie_fibonacci/fibonacci.txt', serie, (err) => {
-    if (err) throw err;
-    console.log("El archivo fue creado con éxito");
-})
+serie.crearSerie(cantidad)
+    .then(mensaje => console.log(mensaje))
+    .catch(mensaje => console.log(mensaje));
